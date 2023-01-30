@@ -5,7 +5,7 @@
 
 - 🔭 I’m currently working on **PetShop Web Application.**
 
-- 🌱 I’m currently working with : **Java,SpringBoot,Data JPA,H2 technologies.**
+- 🌱 I’m currently working with : **Java,SpringBoot,Data JPA,RestFULL Web Services and also in this case i use H2 integrated database.**
 
 - 👨‍💻 All of my projects are available at [https://github.com/hristijan11](https://github.com/hristijan11)
 
