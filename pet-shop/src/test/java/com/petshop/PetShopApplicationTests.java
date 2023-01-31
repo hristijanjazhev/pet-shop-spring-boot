@@ -17,7 +17,6 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import com.petshop.repository.IPetRepository;
-import com.petshop.repository.IUserRepository;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest
@@ -25,7 +24,7 @@ class PetShopApplicationTests {
 
 	@Autowired
 	MockMvc mockMvc;
-	
+
 	@Autowired
 	@MockBean
 	IPetRepository petRepository;
@@ -34,8 +33,8 @@ class PetShopApplicationTests {
 	void contextLoads() throws Exception {
 		when(petRepository.findAll()).thenReturn(Collections.emptyList());
 
-		MvcResult mvcResult = mockMvc.perform(MockMvcRequestBuilders.get("/all/pets").accept(MediaType.APPLICATION_JSON))
-				.andReturn();
+		MvcResult mvcResult = mockMvc
+				.perform(MockMvcRequestBuilders.get("/all/pets").accept(MediaType.APPLICATION_JSON)).andReturn();
 
 		System.out.println(mvcResult.getResponse());
 

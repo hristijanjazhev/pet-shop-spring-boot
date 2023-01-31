@@ -65,18 +65,3 @@ public class PurchasePetImpl implements IPurchasePetService {
 		}
 	}
 }
-//		List<User> users = findAll();
-//		for (User user : users) {
-//			Pet pets = this.petRepository.findById(1L).orElse(null);
-//			if (pet != null && user.getMoney().compareTo(petts.getPrice()) >= 0) {
-//				user.setMoney(user.getMoney().subtract(pets.getPrice()));
-//				userRepository.save(user);
-//				pets.setAvailable(false);
-//				this.petRepository.save(pets);
-//				HistoryLog historyLog = new HistoryLog();
-//				historyLog.setUser(user);
-//				historyLog.setPet(pet);
-//				historyLog.setEvent("Buy");
-//				historyLog.setDate(LocalDate.now());
-//				this.historyLogRepository.save(historyLog);
-//			}
