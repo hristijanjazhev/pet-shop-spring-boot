@@ -8,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.petshop.model.HistoryLog;
-import com.petshop.model.Pet;
-import com.petshop.model.User;
 import com.petshop.repository.IHistoryLogRepository;
 import com.petshop.service.IHistoryLogService;
 
@@ -20,32 +18,6 @@ import jakarta.transaction.Transactional;
 public class HistoryLogServiceImpl implements IHistoryLogService {
 	@Autowired
 	private IHistoryLogRepository historyLogRepository;
-
-	public List<HistoryLog> getPetPurchaseHistory(Pet pet) {
-		return this.historyLogRepository.findByPet(pet);
-	}
-
-	public List<HistoryLog> getUserPurchaseHistory(User user) {
-		return this.historyLogRepository.findByUser(user);
-	}
-
-	public List<HistoryLog> getAllPurchaseHistory() {
-		return this.historyLogRepository.findAll();
-	}
-
-	public Long countByEventAndDate(String event, LocalDate date) {
-		return this.historyLogRepository.countByEventAndDate(event, date);
-	}
-
-	public HistoryLog logBuyAttempt(List<User> users, boolean success) {
-		HistoryLog logEntry = new HistoryLog();
-		logEntry.setDate(LocalDate.now());
-		logEntry.setSuccessfulPurchases(success);
-		if (!success) {
-			logEntry.setFailedPurchases(success);
-		}
-		return this.historyLogRepository.save(logEntry);
-	}
 
 	@Override
 	public List<HistoryLog> getHistoryLog() {
@@ -60,5 +32,4 @@ public class HistoryLogServiceImpl implements IHistoryLogService {
 		}
 		return result;
 	}
-
 }

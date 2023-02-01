@@ -18,7 +18,7 @@ import com.petshop.model.Pet;
 import com.petshop.service.IPetService;
 
 @RestController
-@RequestMapping("/all")
+@RequestMapping("/")
 public class PetShopController {
 
 	@Autowired
@@ -28,28 +28,28 @@ public class PetShopController {
 		this.petService = petService;
 	}
 
-	@GetMapping("/pets")
+	@GetMapping("list-pets")
 	public ResponseEntity<List<Pet>> getPets() {
 		return ResponseEntity.ok().body(this.petService.getAllPets());
 	}
 
-	@GetMapping("/pet/{id}")
+	@GetMapping("pet/{id}")
 	public ResponseEntity<Object> getPetsById(@PathVariable long id) {
 		return ResponseEntity.ok().body(this.petService.getPetById(id));
 	}
 
-	@PutMapping("/pet/{id}")
+	@PutMapping("pet/{id}")
 	public ResponseEntity<Pet> updatePets(@PathVariable long id, @RequestBody Pet pet) {
 		pet.setId(id);
 		return ResponseEntity.ok().body(this.petService.updatePet(pet));
 	}
 
-	@PostMapping("/pet")
+	@PostMapping("create-pets")
 	public ResponseEntity<Pet> createPet(@RequestBody Pet pet) {
 		return ResponseEntity.ok().body(this.petService.createPet(pet));
 	}
 
-	@DeleteMapping("/pet/{id}")
+	@DeleteMapping("pet/{id}")
 	public HttpStatus removePet(@PathVariable long id) {
 		this.petService.removePet(id);
 		return HttpStatus.OK;

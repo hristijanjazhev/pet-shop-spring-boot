@@ -41,14 +41,14 @@ public class PetServiceImpl implements IPetService {
 	@Override
 	public Pet createPet(Pet pet) {
 		List<Pet> allPets = this.petRepository.findAll();
-		if (allPets.size() >= 10) {
-			throw new ResourceNotFoundException("Cannot create more than 10 users");
+		if (allPets.size() >= 20) {
+			throw new ResourceNotFoundException("Cannot create more than 20 users!");
 		}
 		pet.setName(pet.getName());
 		pet.setType(pet.getType());
 		pet.setDescription(pet.getDescription());
 		pet.setBirthDate(pet.getBirthDate());
-		pet.setPrice(calculatePrice(pet));
+		pet.setPrice(pet.getPrice());
 		pet.setRating(pet.getRating());
 		pet.setOwned(pet.getOwned());
 		pet.setOwner(pet.getOwner());

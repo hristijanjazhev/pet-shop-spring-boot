@@ -26,8 +26,8 @@ public class UserServiceImpl implements IUserService {
 	@Override
 	public User createUser(User user) {
 		List<User> allUsers = this.userRepository.findAll();
-		if (allUsers.size() >= 20) {
-			throw new ResourceNotFoundException("Cannot create more than 20 users");
+		if (allUsers.size() >= 10) {
+			throw new ResourceNotFoundException("Cannot create more than 10 users!");
 		}
 		user.setFirstName(user.getFirstName());
 		user.setLastName(user.getLastName());

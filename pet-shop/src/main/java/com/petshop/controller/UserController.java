@@ -18,7 +18,7 @@ import com.petshop.model.User;
 import com.petshop.service.IUserService;
 
 @RestController
-@RequestMapping("/all")
+@RequestMapping("/")
 public class UserController {
 	@Autowired
 	private IUserService userService;
@@ -27,28 +27,28 @@ public class UserController {
 		this.userService = userService;
 	}
 
-	@GetMapping("/users")
+	@GetMapping("list-users")
 	public ResponseEntity<List<User>> getUsers() {
 		return ResponseEntity.ok().body(this.userService.getAllUsers());
 	}
 
-	@GetMapping("/user/{id}")
+	@GetMapping("user/{id}")
 	public ResponseEntity<Object> getUsersById(@PathVariable long id) {
 		return ResponseEntity.ok().body(this.userService.getUserById(id));
 	}
 
-	@PutMapping("/user/{id}")
+	@PutMapping("user/{id}")
 	public ResponseEntity<User> updateUsers(@PathVariable long id, @RequestBody User user) {
 		user.setId(id);
 		return ResponseEntity.ok().body(this.userService.updateUser(user));
 	}
 
-	@PostMapping("/user")
+	@PostMapping("create-users")
 	public ResponseEntity<User> createUser(@RequestBody User user) {
 		return ResponseEntity.ok().body(this.userService.createUser(user));
 	}
 
-	@DeleteMapping("/user/{id}")
+	@DeleteMapping("user/{id}")
 	public HttpStatus removeUser(@PathVariable long id) {
 		this.userService.deleteUser(id);
 		return HttpStatus.OK;

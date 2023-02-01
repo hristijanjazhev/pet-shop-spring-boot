@@ -16,10 +16,4 @@ public class Dog extends Pet {
 	public Integer getRating() {
 		return rating;
 	}
-
-//	public void calculatePrice() {
-//		LocalDate today = LocalDate.now();
-//		int age = today.getYear() - birthDate.getYear();
-//		int a = age * 1;
-//	}
 }
