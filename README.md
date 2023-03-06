@@ -3,7 +3,7 @@
 
 
 
-- 🔭 I’m currently working on **PetShop Web Application...**
+- 🔭 I’m currently working on **PetShop Web Application**
 
 - 🌱 I’m currently working with : **Java,SpringBoot,Data JPA,RestFULL Web Services and also in this case i use H2 integrated database.**
 
